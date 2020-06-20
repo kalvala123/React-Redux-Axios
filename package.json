@@ -15,7 +15,7 @@
     "axios": "^0.16.1",
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
-    "jquery": "2.2.3",
+    "jquery": "3.5.1",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
     "namor": "^1.0.1",
