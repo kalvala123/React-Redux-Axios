@@ -1,7 +1,12 @@
 import { createStore } from 'redux'
-import { todoReducer } from './reducers/todoReducer'
-import { todo } from './actions/todoAction'
-
+//import {todoReducer} from './reducers/todoReducer'
+import rootReducer from './reducers/rootReducer'
+//import { addTodo } from './actions/todoAction'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import App from './components/App'
+import React from 'react'
+/*
 // creating the store
 const store= createStore(todoReducer)
 
@@ -13,7 +18,17 @@ console.log(store.getState())
 const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 // Dispatch some actions
-store.dispatch(todo('Learn about actions'))
+store.dispatch(addTodo('Learn about actions'))
 
 // Stop listening to state updates
 unsubscribe()
+*/
+
+//create store
+const store = createStore(rootReducer)
+
+render(
+    <Provider store = {store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root'))
