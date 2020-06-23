@@ -27,6 +27,7 @@ unsubscribe()
 //create store
 const store = createStore(rootReducer)
 
+//The <Provider /> makes the Redux store available to any nested components that have been wrapped in the connect() function.
 render(
     <Provider store = {store}>
         <App/>

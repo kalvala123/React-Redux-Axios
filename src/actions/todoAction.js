@@ -13,7 +13,10 @@ export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 let nextTodoId = 0
 
 /*
- * action creators
+ * Action Creators
+ * action creators are the functions that creates actions. 
+ * So actions are the objects and action creator are functions that return these actions.
+ * Actions only tell "what to do"
  */
 export function addTodo(text) {
     return { 
@@ -38,3 +41,14 @@ export const VisibilityFilters = {
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE'
   } 
+
+ //Actions are a plain java script object that contatins information.
+ //Actions have a type field that tells what kind of action to perform and all other fields contatins information/data.
+ 
+export function addItem(item) {
+  alert("name "+item.name)
+    return { 
+        type:"ADD_ITEM",
+        item:item
+    }
+  }

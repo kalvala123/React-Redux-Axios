@@ -24,4 +24,12 @@ const mapDispatchToProps = dispatch => ({
   toggleTodo: id => dispatch(toggleTodo(id))
 })
 
+/*
+connect accepts four different parameters, all optional. By convention, they are called:
+mapStateToProps?: Function
+mapDispatchToProps?: Function | Object
+mergeProps?: Function
+options?: Object
+*/
+
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
