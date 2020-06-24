@@ -1,17 +1,11 @@
 import { connect } from 'react-redux'
 import AddItemComponent from '../components/AddItemComponent'
 import {addItem} from '../actions/todoAction'
+import {bindActionCreators} from 'redux'
 
-/*const mapStateToProps = (state) => {
-  return {
-        items: state
-    }
-}*/
-
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = dispatch => ({
       // dispatching plain actions
-      // handleAddItemSubmit: (item) => { alert(item.name+" "+ item.id +" "+ item.location); dispatch(addItem(item)) }
-    }
-  }
-export default connect(null,null)(AddItemComponent)
+      handleAddItemSubmit: (item) => dispatch(addItem(item))
+})
+
+export default connect(null,mapDispatchToProps)(AddItemComponent)

@@ -6,8 +6,7 @@ let initialState = []
 const addItemReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_ITEM":
-            alert(action.item.name + action.item.id + action.item.location)
-            state.push(action.item)
+            state.push(action.payload)
             return state
         default:
             return state

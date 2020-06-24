@@ -48,6 +48,6 @@ export const VisibilityFilters = {
 export function addItem(item) {
   return { 
         type:"ADD_ITEM",
-        item:item
-    }
+        payload:item
   }
+}

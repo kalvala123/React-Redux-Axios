@@ -5,7 +5,7 @@ import DisplayItemsComponent from '../components/DisplayItemsComponent'
 
 const mapStateToProps = (state) => {
     return {
-        items: state
+        items:state.items
     }
 }
 

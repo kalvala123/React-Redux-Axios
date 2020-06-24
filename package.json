@@ -26,7 +26,8 @@
     "react-table": "^5.3.4",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
-    "toastr": "2.1.2"
+    "toastr": "2.1.2",
+    "redux-form": "^6.1.1"
   },
   "devDependencies": {
     "react-scripts": "latest"

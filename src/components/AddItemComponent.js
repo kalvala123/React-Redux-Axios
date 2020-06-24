@@ -1,65 +1,51 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { reduxForm, Field, getFormValues } from 'redux-form'
 import { addItem } from '../actions/todoAction'
+import { Component } from 'react'
 
-const AddItemComponent = ({ dispatch }) => {
+class AddItemComponent extends Component {
 
-    const [name, setName] = useState('');
-    const [id, setId] = useState('');
-    const [location, setLocation] = useState('');
-
-    const handleNameChange = (event) => {
-        setName(event.target.value.trim());
-    };
-
-    const handleIdChange = (event) => {
-        setId(event.target.value.trim());
-    };
-
-    const handleLocationChange = (event) => {
-        setLocation(event.target.value.trim());
-    };
-
-    AddItemComponent.propTypes = {
-        item: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                id: PropTypes.string.isRequired,
-                location: PropTypes.string.isRequired
-            }).isRequired
-        ).isRequired
+    constructor(props) {
+        super(props)
+        this.state = 
+        { name: "", id: "", location: "" }
     }
-    
 
-    return (<div>
-        <form onSubmit={dispatch(addItem({ name: name, id: id, location: location }))}>
-            <tr>
-                <td>
-                    name:
-            </td>
-                <td>
-                    <input type="text" name="name" value={name} onChange={handleNameChange}></input><br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    id:
-            </td>
-                <td>
-                    <input type="text" name="id" value={id} onChange={handleIdChange}></input><br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    location:
-            </td>
-                <td>
-                    <input type="text" name="location" value={location} onChange={handleLocationChange}></input><br />
-                </td>
-            </tr>
-            <button type="submit" name="submit">click to submit</button>
-        </form>
-    </div>);
+    handleNameChange = (event) => {
+        this.setState({ name: event.target.value })
+    }
+    handleIdChange = (event) => {
+        this.setState({ id: event.target.value })
+    }
+    handleLocationChange = (event) => {
+        this.setState({ location: event.target.value })
+    }
 
-}
-export default AddItemComponent
+    addItemAction = () => {
+        const payload = {
+            name: this.state.name,
+            id: this.state.id,
+            location: this.state.location
+        }
+        this.props.handleAddItemSubmit(payload)
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.addItemAction}>
+                    <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.handleNameChange} />
+                    <input type="text" name="id" placeholder="id" value={this.state.id} onChange={this.handleIdChange} />
+                    <input type="text" name="location" placeholder="location" value={this.state.location} onChange={this.handleLocationChange} />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        )
+    }
+};
+
+export default reduxForm({
+    form: 'addItemForm'
+
+})(AddItemComponent)
