@@ -46,8 +46,7 @@ export const VisibilityFilters = {
  //Actions have a type field that tells what kind of action to perform and all other fields contatins information/data.
  
 export function addItem(item) {
-  alert("name "+item.name)
-    return { 
+  return { 
         type:"ADD_ITEM",
         item:item
     }
