@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 import { reduxForm, Field, getFormValues } from 'redux-form'
 import { addItem } from '../actions/todoAction'
 import { Component } from 'react'
+import { connect } from 'react-redux'
 
 class AddItemComponent extends Component {
 
     constructor(props) {
+        //alert(JSON.stringify(props))
         super(props)
         this.state = 
         { name: "", id: "", location: "" }
@@ -53,7 +55,4 @@ class AddItemComponent extends Component {
     }
 };
 
-export default reduxForm({
-    form: 'addItemForm'
-
-})(AddItemComponent)
+export default AddItemComponent

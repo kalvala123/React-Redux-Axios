@@ -6,12 +6,13 @@ const initialState = {
     items:[]
 }
 const addItemReducer = (state = initialState, action) => {
-    alert(state.items.length)
     switch (action.type) {
         case "ADD_ITEM":
-            return {
+        var arr =[]
+        arr.push(action.payload)   
+        return {
                 ...state,
-                items:state.items.concat(action.payload)
+                items:state.items.concat(arr)
             }
         default:
             return state

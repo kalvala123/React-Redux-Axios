@@ -4,8 +4,9 @@ import {addItem} from '../actions/todoAction'
 import {bindActionCreators} from 'redux'
 
 const mapStateToProps = (state) => {
+      //alert(JSON.stringify(state))
       return {
-          items:state.items
+          items:state.addItemReducer.items
       }
 }
 
