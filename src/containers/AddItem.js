@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux'
 const mapStateToProps = (state) => {
       //alert(JSON.stringify(state))
       return {
-          items:state.addItemReducer.items
+          items:state.items
       }
 }
 
