@@ -11,6 +11,8 @@ class AddItemComponent extends Component {
         this.state = 
         { name: "", id: "", location: "" }
     }
+     listItems = () => this.props.items.map((item) =>
+    <li>{item.name +" "+item.id + " "+item.location}</li>);
 
     handleNameChange = (event) => {
         this.setState({ name: event.target.value })
@@ -34,12 +36,18 @@ class AddItemComponent extends Component {
     render() {
         return (
             <div>
+                <div>
                 <form onSubmit={this.addItemAction}>
                     <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.handleNameChange} />
                     <input type="text" name="id" placeholder="id" value={this.state.id} onChange={this.handleIdChange} />
                     <input type="text" name="location" placeholder="location" value={this.state.location} onChange={this.handleLocationChange} />
                     <button type="submit">Submit</button>
                 </form>
+                </div>
+                <div>
+                    <h1>Item Details</h1>
+                    {this.listItems}
+                </div>
             </div>
         )
     }
