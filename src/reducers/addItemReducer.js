@@ -6,9 +6,10 @@ const initialState = []
 const items = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_ITEM":
-            var arr = []
-            arr.push(action.payload)
-            return state.concat(arr)
+            let array = state
+            let newArray = array.slice()
+            newArray.splice(action.index, 0, action.payload)
+            return newArray
         default:
             return state
     }
